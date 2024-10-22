@@ -28,6 +28,23 @@
 
 ---
 
-### How to print "Hello, World!" in Python:
+## How to print "Hello, World!" in Python:
 ```python
 print("Hello, World!")
+```
+---
+
+## A hyperlink to my Github-Profile
+[github/soneruen](https://github.com/soneruen)
+
+---
+
+## How to use **Bold-Text**
+**This is a Bold-Text**
+
+---
+
+## This text is ***italic-text-format*** 
+Seems like it's always ***possible*** to ***improve*** in ***something***
+
+### The End
