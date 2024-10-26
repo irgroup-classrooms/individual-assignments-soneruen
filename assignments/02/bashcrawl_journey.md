@@ -1,4 +1,5 @@
 # Bash Crawl Adventure Journey | soneruen
+This document contains the documentation from the game [bashcrawl_journey](https://gitlab.com/slackermedia/bashcrawl).
 
 ## 1. Navigate to the entrance directory
 ```bash
