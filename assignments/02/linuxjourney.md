@@ -1,4 +1,4 @@
-# Learning | Linux Journey
+# Learning | Linux Journey | soneruen
 
 This document contains answers to quizzes and exercises from [Linux Journey](https://linuxjourney.com/lesson/the-shell).
 
@@ -292,4 +292,151 @@ $ less /home/pete/Documents/text1
 - **Force removal:** 
   ```bash
   rm -f file1
+  ```
+
+## 13. rm (Remove)
+
+### Quiz Questions and Answers:
+
+- **Question:** How do you remove a file called `myfile`?
+  - **Answer:** Use `rm myfile` to remove the file called `myfile`.
+
+### Exercises:
+
+- **Exercise 1:** Create a file called `-file` (don't forget the dash!).
   
+  ```bash
+  $ touch -file
+  # Output:
+  # (Creates a file named `-file`)
+  ```
+
+## 14. find
+
+### Quiz Questions and Answers:
+
+- **Question:** What option should I specify for `find` if I want to search by name?
+  - **Answer:** Use the `-name` option to search by name.
+
+### Exercises:
+
+- **Exercise 1:** Find a file from the root directory that has the word `net` in it.
+
+  ```bash
+  $ find / -name "*net*"
+  # Output:
+  # (Displays files containing "net" in their name)
+  ```
+
+## 15. help
+
+### Quiz Questions and Answers:
+
+- **Question:** How do you get quick command line help for built-in bash commands?
+  - **Answer:** Use the `help` command followed by the command name, e.g., `help echo`.
+
+### Exercises:
+
+- **Exercise 1:** Run help on the `echo` command.
+
+  ```bash
+  $ help echo
+  # Output:
+  # (Displays help information for the echo command)
+  ```
+
+  ```bash
+  $ help logout
+  # Output:
+  # (Displays help information for the logout command)
+  ```
+
+  ```bash
+  $ help pwd
+  # Output:
+  # (Displays help information for the pwd command)
+  ```
+
+## 16. man
+
+### Quiz Questions and Answers:
+
+- **Question:** How do you see the manuals for a command?
+  - **Answer:** Use the `man` command.
+
+### Exercises:
+
+- **Exercise 1:** Run the `man` command on the `ls` command.
+
+  ```bash
+  $ man ls
+  # Output:
+  # (Displays the manual page for the ls command)
+  ```
+
+  ## 17. whatis
+
+### Quiz Questions and Answers:
+
+- **Question:** What command can you use to see a small description of a command?
+  - **Answer:** Use the `whatis` command followed by the command name, e.g., `whatis cat`.
+
+### Exercises:
+
+- **Exercise 1:** Run the `whatis` command on the `less` command.
+
+  ```bash
+  $ whatis less
+  # Output:
+  # (Displays a brief description of the less command)
+  ```
+
+## 18. alias
+
+### Quiz Questions and Answers:
+
+- **Question:** What command is used to make an alias?
+  - **Answer:** Use the `alias` command followed by the alias name and command, e.g., `alias foobar='ls -la'`.
+
+### Exercises:
+
+- **Exercise 1:** Create a couple of aliases.
+
+  ```bash
+  $ alias list='ls -la'
+  $ alias greet='echo Hello, World!'
+  # Output:
+  # (Creates aliases 'list' and 'greet')
+  ```
+
+- **Exercise 2:** Remove the aliases.
+
+  ```bash
+  $ unalias list
+  $ unalias greet
+  # Output:
+  # (Removes the aliases 'list' and 'greet')
+  ```
+
+## 19. exit
+
+### Quiz Questions and Answers:
+
+- **Question:** How can you exit from the shell?
+  - **Answer:** Use the `exit` command or the `logout` command to exit from the shell.
+
+### Exercises:
+
+- **Exercise 1:** Exit out of the shell and see what happens.
+
+  ```bash
+  $ exit
+  # Output:
+  # (Closes the shell session)
+  ```
+
+  ```bash
+  $ logout
+  # Output:
+  # (Closes the shell session)
+  ```
