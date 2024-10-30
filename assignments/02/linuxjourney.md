@@ -55,6 +55,10 @@ $ cd ~
 $ cd -
 # Output:
 # [This will take you to the previous directory you were just at.]
+
+$ cd 
+# Output:
+# [This will redirect you to the home directoy.]
 ```
 
 ## 4. ls (List Directories)
