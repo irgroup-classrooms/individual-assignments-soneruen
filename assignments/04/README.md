@@ -40,7 +40,7 @@ awk -F ', ' '{split($5, email, "@"); print email[2]}' contacts.csv
 ``` 
 8.	Extract all instances of the first name ‘David’ along with their full address (street and city).
 ``` 
-
+awk -F ', ' '$1 ~ /^David/ {print $1 ", " $2 ", " $3}' contacts.csv
 ``` 
 9.	Find all entries where the phone number ends with ‘7’.
 ``` 
