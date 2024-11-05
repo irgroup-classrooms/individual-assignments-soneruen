@@ -36,7 +36,7 @@ awk -F ', ' '{split($1, name, " "); print name[2]}' contacts.csv
 ``` 
 7. Extract all email domains (part after the @ sign).
 ``` 
-
+awk -F ', ' '{split($5, email, "@"); print email[2]}' contacts.csv
 ``` 
 8.	Extract all instances of the first name ‘David’ along with their full address (street and city).
 ``` 
