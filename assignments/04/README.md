@@ -28,7 +28,7 @@ grep -oP '\b\d+\s+[^,]*\bSt\b' contacts.csv
 ``` 
 5. Extract all addresses in ‘USA’.
 ``` 
-
+grep ', USA,' contacts.csv
 ``` 
 6. Extract the last names of all people.
 ``` 
