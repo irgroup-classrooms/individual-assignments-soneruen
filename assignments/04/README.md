@@ -16,7 +16,7 @@ grep -oP '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}' contacts.csv
 ``` 
 2. Extract all phone numbers from the text.
 ``` 
-
+grep -oP '\(\d{3}\) \d{3}-\d{4}' contacts.csv
 ``` 
 3. Extract all names that start with the letter ‘J’.
 ``` 
