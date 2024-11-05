@@ -20,7 +20,7 @@ grep -oP '\(\d{3}\) \d{3}-\d{4}' contacts.csv
 ``` 
 3. Extract all names that start with the letter ‘J’.
 ``` 
-
+grep -oP '\bJ\w*\s+\w+' contacts.csv
 ``` 
 4. Extract all street names that contain the word 'St'.
 ``` 
