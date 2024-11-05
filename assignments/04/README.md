@@ -44,7 +44,7 @@ awk -F ', ' '$1 ~ /^David/ {print $1 ", " $2 ", " $3}' contacts.csv
 ``` 
 9.	Find all entries where the phone number ends with ‘7’.
 ``` 
-
+grep -E '\([0-9]{3}\) [0-9]{3}-[0-9]{3}7' contacts.csv
 ``` 
 10.	Extract all instances of first names that end with the letter 'e'.
 ``` 
