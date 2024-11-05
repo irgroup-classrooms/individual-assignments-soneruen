@@ -48,7 +48,7 @@ grep -E '\([0-9]{3}\) [0-9]{3}-[0-9]{3}7' contacts.csv
 ``` 
 10.	Extract all instances of first names that end with the letter 'e'.
 ``` 
-
+awk -F ', ' '{split($1, name, " "); if (name[1] ~ /e$/) print name[1]}' contacts.csv
 ``` 
 
 ## Parsing product orders with Python
