@@ -2,43 +2,74 @@
 
 ## Description of Data Fields in "lotr_characters.csv"
 
-    birth: The birth date of the character. This is be a specific date or a time period (e.g., late Third Age).
-    death: The death date of the character, if known. Some dates may be imprecise (e.g., "February 26" without a year).
-    gender: The gender of the character, if available (Male, Female).
-    hair: The hair color of the character, if known.
-    height: The height of the character, if measured or described.
-    name: The full name of the character.
-    race: The race of the character (e.g., Men, Elves, Orcs, etc.).
-    realm: The realm or place with which the character is associated.
-    spouse: The name of the character's spouse, if married.
+- **birth**: The birth date of the character. This may be a specific date or a time period (e.g., "late Third Age").
+  
+- **death**: The death date of the character, if known. Some dates may be imprecise, such as "February 26" without a year.
+
+- **gender**: The gender of the character, if available. This could be "Male" or "Female," though some characters may not have a specified gender.
+
+- **hair**: The hair color of the character, if known. This field may be left empty if the information is not available.
+
+- **height**: The height of the character, if measured or described. This could be a specific measurement or a general description (e.g., "tall" or "short").
+
+- **name**: The full name of the character as it appears in the lore of the story.
+
+- **race**: The race of the character (e.g., Men, Elves, Orcs, etc.). This field identifies the species or cultural group the character belongs to.
+
+- **realm**: The realm or place with which the character is associated. This could be a kingdom, city, or general geographical region.
+
+- **spouse**: The name of the character's spouse, if married. This field may be empty for unmarried characters or those with unknown spouses.
+
+
+## Description of Data Field in "lotr_scripts.csv"
+
+- **Column**: The name of the character speaking in the dialog (e.g., Frodo, Gandalf, etc.). This field contains the main characters who speak their lines in the script.
+
+- **char**: A shortened version or alias of the character name, if applicable. For example, "Gollum" might appear as "(GOLLUM)" in some lines. This column is used to identify the speaker more concisely, with some entries containing variations in name formatting.
+
+- **dialog**: The actual spoken dialog or quote by the character. This field contains the text spoken by the character in the movie, including dialogue with punctuation, expressions, or exclamations.
+
+- **movie**: The title of the movie in which the dialog was spoken (e.g., "The Fellowship of the Ring," "The Return of the King"). This column helps identify which movie the dialog comes from when the dataset contains multiple films.
+
 
 ## Issues with Data Quality
 
 While working with the "lotr_characters.csv" file, I encountered some issues related to data quality, such as incorrect character names. For instance, some names are improperly encoded, like "Ar-AdÃ»nakhÃ´r," which appears due to character encoding problems.
+
 To address these issues, I took the following steps:
 
-    Text Editor (Notepad++): I opened the CSV file in Notepad++ and re-encoded it to UTF-8 format to ensure proper character representation.
-    Excel: I then imported the file into Excel using the "Get Data" (Daten abrufen/Aus Datei/txt-file) with the Exel Power-Query feature to load it properly. The file was structured into tabs, including the data and the "data retrieval" process. I used the option of using the first line of the csv as headlines.
-    Excel Formatting: This method allowed the columns and formats to be automatically detected, as seen in datasets like those from Kaggle.
-    While working with the data i left many open data fields with no value in it to match it with the input file of kaggle where we have downloaded the content from.
+1. **Text Editor (Notepad++)**: I opened the CSV file in Notepad++ and re-encoded it to UTF-8 format to ensure proper character representation.
+2. **Excel**: I imported the file into Excel using the "Get Data" (Daten abrufen/Aus Datei/txt-file) with the Excel Power-Query feature to load it properly. The file was structured into tabs, including the data and the "data retrieval" process. I used the option to use the first line of the CSV as headers.
+3. **Excel Formatting**: This method allowed the columns and formats to be automatically detected, as seen in datasets like those from Kaggle.
+4. **Empty Fields**: While working with the data, I left many open fields with no value in them to match them with the input file from Kaggle, where the content was originally downloaded from.
+
+
 
 
 ## Analysis Task for lotr_scripts_clean:
 
-1. Find the total number of lines and unique words used in the dialogs (lotr_scripts.csv)
+- Find the total number of lines and unique words used in the dialogs (lotr_scripts_clean.csv)
+```bash
 # Count the total number of lines in the CSV
+# Zählt die Gesamtzahl der Zeilen in der CSV-Datei
 wc -l lotr_scripts_clean.csv
-Output: 2391 
+# Output: 2391
+```
 
-Find the total number of unique words:
-# Extract the 'dialog' column (assuming it's the 3rd column) and find unique words
-awk -F',' '{print $3}' lotr_scripts_clean.csv | tr ' ' '\n' | sort | uniq | wc -l
-Output: 977
-
-2. What is the distribution across the three different films (lotr_scripts.csv)?
+- Find the total number of unique words:
+```bash
 # Count the distribution of movies in the dataset
+# Zählt, wie viele Male jede Filmbezeichnung in der CSV vorkommt
 awk -F',' '{print $4}' lotr_scripts_clean.csv | sort | uniq -c
-Output: 2256
+# Output: 2256
+```
+
+- What is the distribution across the three different films (lotr_scripts_clean.csv)?
+```bash
+# Count the distribution of movies in the dataset again
+# Zählt erneut, wie viele Male jede Filmbezeichnung in der CSV vorkommt
+awk -F',' '{print $4}' lotr_scripts_clean.csv | sort | uniq -c
+# Output: 2256
       1
       1          The crownless again shall be king. ;The Return of the King
       1      Bagshot Row
@@ -174,13 +205,17 @@ Output: 2256
       1  Farewell. Hold to     your purpose and may the blessings of elves
       1  Lovely to see you
       1    do they?   ;The Return of the King
+```
 
-4. What are the top 5 characters in the dialogues (lotr_scripts.csv)?
+-  What are the top 5 characters in the dialogues (lotr_scripts.csv)?
+```bash
 # Find the top 5 characters mentioned in the 'dialog' column (case-sensitive matching)
+# Findet die 5 meistgenannten Charaktere in der 'dialog'-Spalte (Groß-/Kleinschreibung wird berücksichtigt)
 grep -o '\b[A-Z][a-z]*\b' lotr_scripts_clean.csv | sort | uniq -c | sort -nr | head -n 5
-Output:
-   2615 The
-   1011 Two
-   1010 Towers
-    907 King
-    874 Return
+# Output:
+#    2615 The
+#    1011 Two
+#    1010 Towers
+#     907 King
+#     874 Return
+```
