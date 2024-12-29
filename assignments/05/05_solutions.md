@@ -3,9 +3,9 @@
 ## Overview
 This document outlines the steps taken to clean and analyze the `lotr_scripts.csv` dataset, we had to download from kaggle for the lab assignment 05.
 I also uploaded the following files into this repository (05):
-- 05_data_setcleaner.ipynb which is my code for cleaning the csv
-- cleaned_lotr_scripts.csv, as an example when using the code
-- lotr_scripts.csv, the "dirty" data set, just as a reference
+- `05_data_set_cleaner.py` which is my code for cleaning the csv
+- `cleaned_lotr_scripts.csv`, as an example when using the code
+- `lotr_scripts.csv`, the "dirty" data set, just as a reference
 
 ## Data Fields Description
 
@@ -13,7 +13,7 @@ I also uploaded the following files into this repository (05):
 - **dialog**: The actual spoken words or dialogue of the character.
 - **movie**: The title of the movie from which the dialogue is taken.
 
-## Data Cleaning Steps (05_dataset_cleaner.ipynb): Using Python with Regex including documentation for the dirty datafields of the csv in the code block
+## Data Cleaning Steps (05_dataset_cleaner.py): Using Python with Regex including documentation for the dirty datafields of the csv in the code block
 ```python
 import re
 import csv
